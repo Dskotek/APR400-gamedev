@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/HeroSpriteSheet</Texture>
+    <Regions>
+        <Region name="hero-1" x="1" y="0" width="16" height="16" />
+        <Region name="hero-2" x="17" y="0" width="16" height="16" />
+        <Region name="hero-3" x="35" y="0" width="16" height="16" />
+        <Region name="hero-4" x="52" y="0" width="16" height="16" />
+        <Region name="hero-5" x="67" y="0" width="16" height="16" />
+        <Region name="hero-6" x="84" y="0" width="16" height="16" />
+        <Region name="hero-7" x="103" y="0" width="16" height="16" />
+        <Region name="hero-8" x="120" y="0" width="16" height="16" />
+        <Region name="hero-9" x="138" y="0" width="16" height="16" />
+    </Regions>
+    <Animations>
+        <Animation name="hero-down" delay="100">
+            <Frame region="hero-1" />
+            <Frame region="hero-2" />
+            <Frame region="hero-3" />
+        </Animation>
+        <Animation name="hero-left" delay="100">
+            <Frame region="hero-4" />
+            <Frame region="hero-5" />
+            <Frame region="hero-6" />
+        </Animation>
+        <Animation name="hero-up" delay="100">
+            <Frame region="hero-7" />
+            <Frame region="hero-8" />
+            <Frame region="hero-9" />
+        </Animation>
+    </Animations>
+</TextureAtlas>
