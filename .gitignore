@@ -1,0 +1,68 @@
+# --- MonoGame + VS Code + .NET ---
+
+# Build artifacts
+bin/
+obj/
+out/
+build/
+dist/
+
+# MonoGame compiled content
+Content/bin/
+Content/obj/
+*.xnb
+
+# User-specific / local config
+.vscode/
+*.code-workspace
+*.user
+*.userprefs
+
+# Logs and caches
+*.log
+*.tmp
+*.temp
+*.cache
+
+# OS-specific
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux / general
+*~
+.nfs*
+
+# NuGet / package manager
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+
+# Debug / profiling
+*.pdb
+*.mdb
+
+# Backups / autosaves
+*.bak
+*.old
+*.orig
+*.swp
+*.swo
+
+# JetBrains / Rider (if you ever open it there)
+.idea/
+*.iml
+
+# Optional: sprite sheet / texture packer caches
+*.atlas
+*.tpsheet
+*.aseprite-cache
+
+# --- End ---

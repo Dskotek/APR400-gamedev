@@ -42,3 +42,4 @@ C:\Users\lundi\csharpproj\VikingWarriors\obj\Debug\net8.0\VikingWarriors.genrunt
 C:\Users\lundi\csharpproj\VikingWarriors\obj\Debug\net8.0\ref\VikingWarriors.dll
 C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\hero-animations.xml
 C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\HeroSpriteSheet.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\obj\Debug\net8.0\VikingWarriors.sourcelink.json
