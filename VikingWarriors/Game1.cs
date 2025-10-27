@@ -126,7 +126,8 @@ public class Game1 : Core
     protected override void Update(GameTime gameTime)
     {
         // Update the slime animated sprite.
-        _hero.Update(gameTime);
+
+        bool isHeroMoving = false;
 
         // Update the bat animated sprite.
         _bat.Update(gameTime);
@@ -139,10 +140,19 @@ public class Game1 : Core
        // _skeleton.Update(gameTime);
 
         // Check for keyboard input and handle it.
-        CheckKeyboardInput();
+        isHeroMoving = CheckKeyboardInput();
 
         // Check for gamepad input and handle it.
         CheckGamePadInput();
+
+        if (isHeroMoving)
+        {
+            _hero.Update(gameTime);
+        }
+        else
+        {
+            _hero.CurrentFrame = 0;
+        }
 
         // Create a bounding rectangle for the screen.
         Rectangle screenBounds = new Rectangle(
@@ -293,10 +303,11 @@ public class Game1 : Core
         _batVelocity = direction * MOVEMENT_SPEED;
     }
 
-    private void CheckKeyboardInput()
+    private bool CheckKeyboardInput()
     {
         // If the space key is held down, the movement speed increases by 1.5
         float speed = MOVEMENT_SPEED;
+        bool heroMoved = false;
         if (Input.Keyboard.IsKeyDown(Keys.Space))
         {
             speed *= 1.5f;
@@ -311,6 +322,7 @@ public class Game1 : Core
             _heroPosition.Y -= speed;
             newAnimation = _heroUp;
             newEffects = SpriteEffects.None;
+            heroMoved = true;
         }
 
         // if the S or Down keys are down, move the slime down on the screen.
@@ -319,6 +331,7 @@ public class Game1 : Core
             _heroPosition.Y += speed;
             newAnimation = _heroDown;
             newEffects = SpriteEffects.None;
+            heroMoved = true;
         }
 
         // If the A or Left keys are down, move the slime left on the screen.
@@ -327,6 +340,7 @@ public class Game1 : Core
             _heroPosition.X -= speed;
             newAnimation = _heroLeft;
             newEffects = SpriteEffects.FlipHorizontally;
+            heroMoved = true;
 
         }
 
@@ -336,6 +350,7 @@ public class Game1 : Core
             _heroPosition.X += speed;
             newAnimation = _heroLeft;
             newEffects = SpriteEffects.None;
+            heroMoved = true;
 
         }
         if (_hero.Animation != newAnimation && newAnimation != null)
@@ -344,6 +359,7 @@ public class Game1 : Core
             _currentHeroAnimation = newAnimation;
         }
         _hero.Effects = newEffects;
+        return heroMoved;
     }
 
     private void CheckGamePadInput()

@@ -21,6 +21,20 @@ public class AnimatedSprite : Sprite
             Region = _animation.Frames[0];
         }
     }
+
+    public int CurrentFrame
+    {
+        get => _currentFrame;
+        set
+        {
+            _currentFrame = value;
+            if(_animation != null && _animation.Frames.Count > 0)
+            {
+                Region = _animation.Frames[_currentFrame % _animation.Frames.Count];
+            }
+
+        }
+    }
     /// <summary>
     /// Creates a new animated sprite.
     /// </summary>
