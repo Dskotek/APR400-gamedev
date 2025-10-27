@@ -11,6 +11,7 @@ public abstract class Enemy
     protected Vector2 _position;
     protected float _speed;
 
+
     public Vector2 Position => _position;
 
     protected Enemy(AnimatedSprite sprite, Vector2 position, float speed)
