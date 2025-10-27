@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
+using VikingWarriors.GameObjects;
 
 namespace VikingWarriors;
 
@@ -20,10 +21,6 @@ public class Game1 : Core
 
     // Defines the bat animated sprite.
     private AnimatedSprite _bat;
-
-    private AnimatedSprite _skeleton;
-
-    private Vector2 _skeletonPosition;
 
     // Tracks the position of the slime.
     private Vector2 _heroPosition;
@@ -43,9 +40,11 @@ public class Game1 : Core
 
     private List<Rectangle> _tileRects = new();
 
+    private List<Enemy> _enemies = new List<Enemy>();
+
     public Game1() : base("Dungeon Slime", 1280, 768, false)
     {
-
+        Core.ExitOnEscape = true;
     }
 
     protected override void Initialize()
@@ -55,7 +54,7 @@ public class Game1 : Core
         // Set the initial position of the bat to be 10px
         // to the right of the slime.
         _batPosition = new Vector2(_hero.Width + 10, 0);
-        _skeletonPosition = new Vector2(_hero.Width + 200, 100);
+       // _skeletonPosition = new Vector2(_hero.Width + 200, 100);
 
         // Assign the initial random velocity to the bat.
         AssignRandomBatVelocity();
@@ -65,7 +64,7 @@ public class Game1 : Core
     {
         // Create the texture atlas from the XML configuration file.
         TextureAtlas atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
-        TextureAtlas skeletonAtlas = TextureAtlas.FromFile(Content, "images/skeletons.xml");
+       // TextureAtlas skeletonAtlas = TextureAtlas.FromFile(Content, "images/skeletons.xml");
         TextureAtlas heroAtlas = TextureAtlas.FromFile(Content, "images/hero-animations.xml");
 
 
@@ -83,8 +82,12 @@ public class Game1 : Core
         _bat = atlas.CreateAnimatedSprite("bat-animation");
         _bat.Scale = new Vector2(4.0f, 4.0f);
 
-        _skeleton = skeletonAtlas.CreateAnimatedSprite("skeleton-animation");
-        _skeleton.Scale = new Vector2(3.0f, 3.0f);
+
+        
+        _enemies.Add(EnemyFactory.CreateSkeleton(Content, new Vector2(400, 300)));
+
+       // _skeleton = skeletonAtlas.CreateAnimatedSprite("skeleton-animation");
+       // _skeleton.Scale = new Vector2(3.0f, 3.0f);
 
         _tileRects.Clear();
         _tileRects.Add(new Rectangle(0, 0, 64, 64)); //Topp left
@@ -118,7 +121,6 @@ public class Game1 : Core
         };
         _tileMap = new TileMap(_tileset, 64, 64, mapData, _tileRects);
 
-
     }
 
     protected override void Update(GameTime gameTime)
@@ -129,7 +131,12 @@ public class Game1 : Core
         // Update the bat animated sprite.
         _bat.Update(gameTime);
 
-        _skeleton.Update(gameTime);
+        foreach (var enemy in _enemies)
+        {
+            enemy.Update(gameTime, _heroPosition);
+        }
+
+       // _skeleton.Update(gameTime);
 
         // Check for keyboard input and handle it.
         CheckKeyboardInput();
@@ -184,7 +191,7 @@ public class Game1 : Core
         }
 
         //TODO Ändra SLIME
-        Vector2 directionToSlimeSkeleton = _heroPosition - _skeletonPosition;
+       /* Vector2 directionToSlimeSkeleton = _heroPosition - _skeletonPosition;
         if (directionToSlimeSkeleton != Vector2.Zero)
         {
             directionToSlimeSkeleton.Normalize();
@@ -197,7 +204,7 @@ public class Game1 : Core
         else
         {
             _skeleton.Effects = SpriteEffects.None;
-        }
+        }*/
         
         
 
@@ -408,7 +415,12 @@ public class Game1 : Core
         // Draw the bat sprite.
         _bat.Draw(SpriteBatch, _batPosition);
 
-        _skeleton.Draw(SpriteBatch, _skeletonPosition);
+        foreach (var enemy in _enemies)
+        {
+            enemy.Draw(SpriteBatch);
+        }
+
+       // _skeleton.Draw(SpriteBatch, _skeletonPosition);
 
         // Always end the sprite batch when finished.
         SpriteBatch.End();
