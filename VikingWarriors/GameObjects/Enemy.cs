@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MonoGameLibrary.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -21,7 +22,7 @@ public abstract class Enemy
         _speed = speed;
     }
 
-    public virtual void Update(GameTime gameTime, Vector2 playerPosition)
+    public virtual void Update(GameTime gameTime, Vector2 playerPosition, List<Enemy> otherEnemies = null)
     {
         _sprite.Update(gameTime);
     }

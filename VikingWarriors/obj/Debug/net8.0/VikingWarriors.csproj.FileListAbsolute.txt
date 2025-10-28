@@ -91,7 +91,15 @@ C:\Users\Anton\Avancerad-csharp\VikingWarriors\obj\Debug\net8.0\ref\VikingWarrio
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\images\coin.png
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\images\coin.xml
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\fonts\04B_30.xnb
+<<<<<<< HEAD
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\fonts\04B_30.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\coin.png
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\coin.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombie1.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombies.xml
+=======
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\audio\bounce.xnb
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\audio\collect.xnb
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\audio\theme.ogg
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\audio\theme.xnb
+>>>>>>> 8e7d96c395acfd9a01b0121adc74e1c1cff23ddf
