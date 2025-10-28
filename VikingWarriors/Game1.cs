@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Input;
@@ -49,6 +51,12 @@ public class Game1 : Core
 
     private List<Enemy> _enemies = new List<Enemy>();
 
+    private SoundEffect _bounceSoundeEffect;
+
+    private SoundEffect _coinCollectSoundEffect;
+
+    private Song _themeSong;
+
     public Game1() : base("Viking Warriors", 1280, 768, false)
     {
         Core.ExitOnEscape = true;
@@ -67,6 +75,9 @@ public class Game1 : Core
 
         float _scoreTextYOrigin = _font.MeasureString("Score").Y * 0.5f;
         _scoreTextOrigin = new Vector2(0, _scoreTextYOrigin);
+
+        // Starts to play the background music
+        Audio.PlaySong(_themeSong);
         
     }
 
@@ -141,6 +152,12 @@ public class Game1 : Core
             (mapData.GetLength(1) - 2) * 64,   // Bredd minus två tiles för väggarna
             (mapData.GetLength(0) - 2) * 64  // Höjd minus två tiles för väggarna
         );
+
+         _bounceSoundeEffect = Content.Load<SoundEffect>("audio/bounce");
+
+        _coinCollectSoundEffect = Content.Load<SoundEffect>("audio/collect");
+
+        _themeSong = Content.Load<Song>("audio/theme");
 
         _font = Content.Load<SpriteFont>("fonts/04B_30");
     }
@@ -268,6 +285,7 @@ public class Game1 : Core
         {
             normal.Normalize();
             _coinVelocity = Vector2.Reflect(_coinVelocity, normal);
+            _bounceSoundeEffect.Play();
         }
 
         _coinPosition = newCoinPosition;
@@ -289,6 +307,8 @@ public class Game1 : Core
             // Change the coin position by setting the x and y values equal to
             // the column and row multiplied by the width and height.
             _coinPosition = new Vector2(column * _coin.Width, row * _coin.Height);
+
+            _coinCollectSoundEffect.Play();
 
             // Assign a new random velocity to the coin
             AssignRandomCoinVelocity();
