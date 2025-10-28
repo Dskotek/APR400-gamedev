@@ -86,6 +86,18 @@
 /processorParam:TextureFormat=Color
 /build:images/logo.png
 
+#begin images/player-down.xml
+/copy:images/player-down.xml
+
+#begin images/player-left.xml
+/copy:images/player-left.xml
+
+#begin images/player-right.xml
+/copy:images/player-right.xml
+
+#begin images/player-up.xml
+/copy:images/player-up.xml
+
 #begin images/RPGpack_sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -97,6 +109,54 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:images/RPGpack_sheet.png
+
+#begin images/run_down.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/run_down.png
+
+#begin images/run_left.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/run_left.png
+
+#begin images/run_right.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/run_right.png
+
+#begin images/run_up.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/run_up.png
 
 #begin images/skeleton_animations.png
 /importer:TextureImporter
@@ -125,6 +185,81 @@
 /processorParam:TextureFormat=Color
 /build:images/zombie1.png
 
-#begin images/zombies.xml
-/copy:images/zombies.xml
+#begin images/zombie2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/zombie2.png
+
+#begin images/zombie3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/zombie3.png
+
+#begin images/zombie4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/zombie4.png
+
+#begin images/zombie5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/zombie5.png
+
+#begin images/zombie6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/zombie6.png
+
+#begin images/zombies1.xml
+/copy:images/zombies1.xml
+
+#begin images/zombies2.xml
+/copy:images/zombies2.xml
+
+#begin images/zombies3.xml
+/copy:images/zombies3.xml
+
+#begin images/zombies4.xml
+/copy:images/zombies4.xml
+
+#begin images/zombies5.xml
+/copy:images/zombies5.xml
+
+#begin images/zombies6.xml
+/copy:images/zombies6.xml
 

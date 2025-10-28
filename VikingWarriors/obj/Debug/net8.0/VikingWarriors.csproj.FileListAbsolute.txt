@@ -103,3 +103,26 @@ C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\audio\co
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\audio\theme.ogg
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\audio\theme.xnb
 >>>>>>> 8e7d96c395acfd9a01b0121adc74e1c1cff23ddf
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\audio\bounce.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\audio\collect.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\audio\theme.ogg
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\audio\theme.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombie2.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombie3.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombie4.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombie5.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombie6.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombies2.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombies3.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombies4.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombies5.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombies6.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombies1.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\player-down.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\player-left.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\player-right.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\player-up.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\run_down.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\run_left.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\run_right.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\run_up.xnb

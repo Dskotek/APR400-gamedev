@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/run_up</Texture>
+    <Regions>
+        <Region name="hero-up1" x="39" y="28" width="17" height="29" />
+        <Region name="hero-up2" x="134" y="27" width="17" height="27" />
+        <Region name="hero-up3" x="230" y="26" width="17" height="30" />
+        <Region name="hero-up4" x="327" y="27" width="17" height="33" />
+        <Region name="hero-up5" x="424" y="28" width="17" height="29" />
+        <Region name="hero-up6" x="520" y="27" width="18" height="27" />
+        <Region name="hero-up7" x="616" y="26" width="17" height="30" />
+        <Region name="hero-up8" x="712" y="27" width="17" height="33" />
+    </Regions>
+    <Animations>
+        <Animation name="hero-up" delay="100">
+            <Frame region="hero-up1" />
+            <Frame region="hero-up2" />
+            <Frame region="hero-up3" />
+            <Frame region="hero-up4" />
+            <Frame region="hero-up5" />
+            <Frame region="hero-up6" />
+            <Frame region="hero-up7" />
+            <Frame region="hero-up8" />
+        </Animation>
+        
+    </Animations>
+</TextureAtlas>

@@ -17,7 +17,7 @@ public class Game1 : Core
     // Defines the slime animated sprite.
     private AnimatedSprite _hero;
 
-    private Animation _heroDown, _heroLeft, _heroUp;
+    private Animation _heroDown, _heroLeft, _heroUp, _heroRight;
 
     private Animation _currentHeroAnimation;
 
@@ -42,6 +42,10 @@ public class Game1 : Core
     private SpriteFont _font;
 
     private int _score;
+    private int _coinsCollected;
+    private const int COINS_PER_ZOMBIE = 5;
+
+    private const int COINS_PER_SKELETON = 15;
 
     private Vector2 _scoreTextPosition;
 
@@ -86,7 +90,10 @@ public class Game1 : Core
         // Create the texture atlas from the XML configuration file.
         TextureAtlas atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
         // TextureAtlas skeletonAtlas = TextureAtlas.FromFile(Content, "images/skeletons.xml");
-        TextureAtlas heroAtlas = TextureAtlas.FromFile(Content, "images/hero-animations.xml");
+        TextureAtlas heroDownAtlas = TextureAtlas.FromFile(Content, "images/player-down.xml");
+        TextureAtlas heroLeftAtlas = TextureAtlas.FromFile(Content, "images/player-left.xml");
+        TextureAtlas heroUpAtlas = TextureAtlas.FromFile(Content, "images/player-up.xml");
+        TextureAtlas heroRightAtlas = TextureAtlas.FromFile(Content, "images/player-right.xml");
         
         TextureAtlas coinAtlas = TextureAtlas.FromFile(Content, "images/coin.xml");
 
@@ -95,22 +102,21 @@ public class Game1 : Core
         /*_hero = heroAtlas.CreateAnimatedSprite("hero-animation");
         _hero.Scale = new Vector2(4.0f, 4.0f);*/
 
-        _heroDown = heroAtlas.GetAnimation("hero-down");
-        _heroLeft = heroAtlas.GetAnimation("hero-left");
-        _heroUp = heroAtlas.GetAnimation("hero-up");
+        _heroDown = heroDownAtlas.GetAnimation("hero-down");
+        _heroLeft = heroLeftAtlas.GetAnimation("hero-left");
+        _heroUp = heroUpAtlas.GetAnimation("hero-up");
+        _heroRight = heroRightAtlas.GetAnimation("hero-right");
         _hero = new AnimatedSprite(_heroDown); // Starta med nedåt
-        _hero.Scale = new Vector2(4.0f, 4.0f);
+        _hero.Scale = new Vector2(2.5f, 2.5f);
 
         _coin = coinAtlas.CreateAnimatedSprite("coin-animation");
         _coin.Scale = new Vector2(0.5f, 0.5f);
 
 
 
-        _enemies.Add(EnemyFactory.CreateSkeleton(Content, new Vector2(400, 300)));
-        _enemies.Add(EnemyFactory.CreateZombie(Content, new Vector2(300, 300)));
-        _enemies.Add(EnemyFactory.CreateZombie(Content, new Vector2(200, 300)));
-        _enemies.Add(EnemyFactory.CreateZombie(Content, new Vector2(100, 300)));
-        _enemies.Add(EnemyFactory.CreateZombie(Content, new Vector2(400, 300)));
+        //_enemies.Add(EnemyFactory.CreateSkeleton(Content, new Vector2(400, 300)));
+        _enemies.Add(EnemyFactory.CreateRandomZombie(Content, new Vector2(300, 300)));
+    
 
 
        // _skeleton = skeletonAtlas.CreateAnimatedSprite("skeleton-animation");
@@ -130,11 +136,10 @@ public class Game1 : Core
         _tileRects.Add(new Rectangle(576, 0, 64, 64)); //dirt top right
         _tileRects.Add(new Rectangle(512, 64, 64, 64)); //Dirt bot left
         _tileRects.Add(new Rectangle(576, 64, 64, 64)); //Dirt bot right
-        _tileset = Content.Load<Texture2D>("images/RPGpack_sheet");
         int[,] mapData = new int[,]
         {
-            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2}, 
-            {3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5}, 
+            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2},
+            {3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5},
             {3, 4, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 4, 5},
             {3, 4, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 4, 5},
             {3, 4, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 4, 5},
@@ -144,9 +149,29 @@ public class Game1 : Core
             {3, 4, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 9, 10, 4, 5},
             {3, 4, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 11, 12, 4, 5},
             {3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5},
-            {6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8}  
+            {6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8}
         };
-        _tileMap = new TileMap(_tileset, 64, 64, mapData, _tileRects);
+        int[,] decorationData = new int[,]
+        {
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 13, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 13, 0, 0, 0, 14, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
+        };
+        _tileRects.Add(new Rectangle(0, 644, 63, 123));  //13 green tree
+        _tileRects.Add(new Rectangle(383, 793, 128, 38)); //14 fence
+
+        _tileset = Content.Load<Texture2D>("images/RPGpack_sheet");
+        _tileMap = new TileMap(_tileset, 64, 64, mapData, _tileRects, decorationData);
 
         // Skapa spelplanens gränser baserat på tilemappen
         // mapData.GetLength(1) ger bredden (antal kolumner)
@@ -180,7 +205,7 @@ public class Game1 : Core
             enemy.Update(gameTime, _heroPosition, _enemies);
         }
 
-       // _skeleton.Update(gameTime);
+        // _skeleton.Update(gameTime);
 
         // Check for keyboard input and handle it.
         isHeroMoving = CheckKeyboardInput();
@@ -204,7 +229,7 @@ public class Game1 : Core
             (int)(_hero.Width * 0.5f)
         );
 
-        
+
 
         // Kontrollera att hjälten stannar inom spelplanens gränser
         if (heroBounds.Left < _roomBounds.Left)
@@ -287,7 +312,7 @@ public class Game1 : Core
 
 
 
-          if (normal != Vector2.Zero)
+        if (normal != Vector2.Zero)
         {
             normal.Normalize();
             _coinVelocity = Vector2.Reflect(_coinVelocity, normal);
@@ -300,6 +325,21 @@ public class Game1 : Core
         {
             // Öka poängen när hjälten kolliderar med myntet
             _score += 100;
+
+            _coinsCollected++;
+
+            if (_coinsCollected % COINS_PER_ZOMBIE == 0)
+            {
+                Vector2 spawnPosition = GetRandomSpawnPosition();
+                _enemies.Add(EnemyFactory.CreateRandomZombie(Content, spawnPosition));
+            }
+            if(_coinsCollected % COINS_PER_SKELETON == 0)
+            {
+                Vector2 spawnPosition = GetRandomSpawnPosition();
+                _enemies.Add(EnemyFactory.CreateSkeleton(Content, spawnPosition));
+            }
+
+            
 
             // Divide the width  and height of the screen into equal columns and
             // rows based on the width and height of the coin.
@@ -321,6 +361,19 @@ public class Game1 : Core
         }
 
         base.Update(gameTime);
+    }
+    
+    private Vector2 GetRandomSpawnPosition()
+    {
+        int edge = Random.Shared.Next(4);
+        return edge switch
+        {
+            0 => new Vector2(_roomBounds.Left, Random.Shared.Next(_roomBounds.Top, _roomBounds.Bottom)), // Left edge
+            1 => new Vector2(_roomBounds.Right, Random.Shared.Next(_roomBounds.Top, _roomBounds.Bottom)), // Right edge
+            2 => new Vector2(Random.Shared.Next(_roomBounds.Left, _roomBounds.Right), _roomBounds.Top), // Top edge
+            3 => new Vector2(Random.Shared.Next(_roomBounds.Left, _roomBounds.Right), _roomBounds.Bottom), // Bottom edge
+            _ => new Vector2(_roomBounds.Left, Random.Shared.Next(_roomBounds.Top, _roomBounds.Bottom)),
+        };
     }
 
      private void AssignRandomCoinVelocity()
@@ -373,7 +426,7 @@ public class Game1 : Core
         {
             _heroPosition.X -= speed;
             newAnimation = _heroLeft;
-            newEffects = SpriteEffects.FlipHorizontally;
+            newEffects = SpriteEffects.None;
             heroMoved = true;
 
         }
@@ -382,7 +435,7 @@ public class Game1 : Core
         if (Input.Keyboard.IsKeyDown(Keys.D) || Input.Keyboard.IsKeyDown(Keys.Right))
         {
             _heroPosition.X += speed;
-            newAnimation = _heroLeft;
+            newAnimation = _heroRight;
             newEffects = SpriteEffects.None;
             heroMoved = true;
 

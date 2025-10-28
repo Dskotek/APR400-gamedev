@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/run_down</Texture>
+    <Regions>
+        <Region name="hero-down1" x="37" y="30" width="18" height="29" />
+        <Region name="hero-down2" x="135" y="29" width="19" height="28" />
+        <Region name="hero-down3" x="230" y="28" width="21" height="27" />
+        <Region name="hero-down4" x="325" y="29" width="20" height="31" />
+        <Region name="hero-down5" x="423" y="30" width="19" height="29" />
+        <Region name="hero-down6" x="518" y="29" width="21" height="28" />
+        <Region name="hero-down7" x="614" y="28" width="18" height="27" />
+        <Region name="hero-down8" x="709" y="29" width="18" height="31" />
+    </Regions>
+    <Animations>
+        <Animation name="hero-down" delay="100">
+            <Frame region="hero-down1" />
+            <Frame region="hero-down2" />
+            <Frame region="hero-down3" />
+            <Frame region="hero-down4" />
+            <Frame region="hero-down5" />
+            <Frame region="hero-down6" />
+            <Frame region="hero-down7" />
+            <Frame region="hero-down8" />
+        </Animation>
+        
+    </Animations>
+</TextureAtlas>
