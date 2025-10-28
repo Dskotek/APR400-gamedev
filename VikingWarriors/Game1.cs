@@ -94,8 +94,13 @@ public class Game1 : Core
         _coin.Scale = new Vector2(0.5f, 0.5f);
 
 
-        
+
         _enemies.Add(EnemyFactory.CreateSkeleton(Content, new Vector2(400, 300)));
+        _enemies.Add(EnemyFactory.CreateZombie(Content, new Vector2(300, 300)));
+        _enemies.Add(EnemyFactory.CreateZombie(Content, new Vector2(200, 300)));
+        _enemies.Add(EnemyFactory.CreateZombie(Content, new Vector2(100, 300)));
+        _enemies.Add(EnemyFactory.CreateZombie(Content, new Vector2(400, 300)));
+
 
        // _skeleton = skeletonAtlas.CreateAnimatedSprite("skeleton-animation");
        // _skeleton.Scale = new Vector2(3.0f, 3.0f);
@@ -155,7 +160,7 @@ public class Game1 : Core
 
         foreach (var enemy in _enemies)
         {
-            enemy.Update(gameTime, _heroPosition);
+            enemy.Update(gameTime, _heroPosition, _enemies);
         }
 
        // _skeleton.Update(gameTime);
@@ -204,12 +209,12 @@ public class Game1 : Core
         }
 
 
-        Vector2 directionToHeroCoin = _heroPosition - _coinPosition;
+        /*Vector2 directionToHeroCoin = _heroPosition - _coinPosition;
         if (directionToHeroCoin != Vector2.Zero)
         {
             directionToHeroCoin.Normalize();
             _coinVelocity = directionToHeroCoin * MOVEMENT_SPEED;
-        }
+        }*/
 
         //TODO Ändra SLIME
         /* Vector2 directionToSlimeSkeleton = _heroPosition - _skeletonPosition;
@@ -226,6 +231,7 @@ public class Game1 : Core
          {
              _skeleton.Effects = SpriteEffects.None;
          }*/
+
 
 
 

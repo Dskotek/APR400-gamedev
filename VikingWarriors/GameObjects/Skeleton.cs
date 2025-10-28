@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameLibrary.Graphics;
@@ -12,7 +13,7 @@ public class Skeleton : Enemy
     {
         _sprite.Scale = new Vector2(3.0f, 3.0f);
     }
-    public override void Update(GameTime gameTime, Vector2 playerPosition)
+    public override void Update(GameTime gameTime, Vector2 playerPosition, List<Enemy> otherEnemies = null)
     {
         base.Update(gameTime, playerPosition);
 

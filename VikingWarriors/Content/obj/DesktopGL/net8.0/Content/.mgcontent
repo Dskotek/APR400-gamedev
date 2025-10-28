@@ -4,14 +4,16 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/fonts/04B_30.spritefont</File>
-    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/images/atlas.png</File>
-    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/images/HeroSpriteSheet.png</File>
-    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/images/logo.png</File>
-    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/images/RPGpack_sheet.png</File>
-    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/images/skeleton_animations.png</File>
+    <File>C:/Users/lundi/csharpproj/VikingWarriors/Content/fonts/04B_30.spritefont</File>
+    <File>C:/Users/lundi/csharpproj/VikingWarriors/Content/images/atlas.png</File>
+    <File>C:/Users/lundi/csharpproj/VikingWarriors/Content/images/HeroSpriteSheet.png</File>
+    <File>C:/Users/lundi/csharpproj/VikingWarriors/Content/images/logo.png</File>
+    <File>C:/Users/lundi/csharpproj/VikingWarriors/Content/images/RPGpack_sheet.png</File>
+    <File>C:/Users/lundi/csharpproj/VikingWarriors/Content/images/skeleton_animations.png</File>
+    <File>C:/Users/lundi/csharpproj/VikingWarriors/Content/images/zombie1.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

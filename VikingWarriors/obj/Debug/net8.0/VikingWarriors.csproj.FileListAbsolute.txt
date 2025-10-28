@@ -91,3 +91,8 @@ C:\Users\Anton\Avancerad-csharp\VikingWarriors\obj\Debug\net8.0\ref\VikingWarrio
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\images\coin.png
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\images\coin.xml
 C:\Users\Anton\Avancerad-csharp\VikingWarriors\bin\Debug\net8.0\Content\fonts\04B_30.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\fonts\04B_30.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\coin.png
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\coin.xml
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombie1.xnb
+C:\Users\lundi\csharpproj\VikingWarriors\bin\Debug\net8.0\Content\images\zombies.xml

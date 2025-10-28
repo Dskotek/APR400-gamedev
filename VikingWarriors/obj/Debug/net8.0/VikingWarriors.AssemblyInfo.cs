@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VikingWarriors")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+900bbafd87dc8186daebcd3e022b623907511fe2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+809a5c34c7df4c09e320352d8279300e472c4f7d")]
 [assembly: System.Reflection.AssemblyProductAttribute("VikingWarriors")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VikingWarriors")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
