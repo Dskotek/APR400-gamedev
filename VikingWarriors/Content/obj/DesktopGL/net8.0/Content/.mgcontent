@@ -4,6 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/audio/bounce.wav</File>
+    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/audio/collect.wav</File>
+    <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/audio/theme.ogg</File>
     <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/fonts/04B_30.spritefont</File>
     <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/images/atlas.png</File>
     <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/images/HeroSpriteSheet.png</File>
@@ -12,6 +15,9 @@
     <File>C:/Users/Anton/Avancerad-csharp/VikingWarriors/Content/images/skeleton_animations.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
