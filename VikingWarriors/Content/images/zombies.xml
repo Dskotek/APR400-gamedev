@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/zombie1</Texture>
+    <Regions>
+        <Region name="zombie1-1" x="2" y="1" width="32" height="35" />
+        <Region name="zombie1-2" x="47" y="1" width="32" height="35" />
+        <Region name="zombie1-3" x="94" y="1" width="32" height="35" />
+        <Region name="zombie1-4" x="3" y="36" width="32" height="35" />
+        <Region name="zombie1-5" x="48" y="36" width="32" height="35" />
+        <Region name="zombie1-6" x="94" y="36" width="32" height="35" />
+        <Region name="zombie1-7" x="1" y="72" width="32" height="35" />
+        <Region name="zombie1-8" x="48" y="72" width="32" height="35" />
+        <Region name="zombie1-9" x="94" y="72" width="32" height="35" />
+        <Region name="zombie1-10" x="1" y="108" width="32" height="35" />
+        <Region name="zombie1-11" x="48" y="108" width="32" height="35" />
+        <Region name="zombie1-12" x="94" y="108" width="32" height="35" />
+    </Regions>
+    <Animations>
+        <Animation name="zombie-down" delay="100">
+            <Frame region="zombie1-1" />
+            <Frame region="zombie1-2" />
+            <Frame region="zombie1-3" />
+          </Animation>
+          <Animation name="zombie-right" delay="100">
+            <Frame region="zombie1-4" />
+            <Frame region="zombie1-5" />
+            <Frame region="zombie1-6" />
+          </Animation>
+          <Animation name="zombie-up" delay="100">
+            <Frame region="zombie1-7" />
+            <Frame region="zombie1-8" />
+            <Frame region="zombie1-9" />
+          </Animation>
+          <Animation name="zombie-left" delay="100">
+            <Frame region="zombie1-10" />
+            <Frame region="zombie1-11" />
+            <Frame region="zombie1-12" />
+        </Animation>
+    </Animations>
+</TextureAtlas>

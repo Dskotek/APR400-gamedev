@@ -13,6 +13,31 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin audio/bounce.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/bounce.wav
+
+#begin audio/collect.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/collect.wav
+
+#begin audio/theme.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:audio/theme.ogg
+
+#begin fonts/04B_30.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:fonts/04B_30.spritefont
+
 #begin images/atlas-definition.xml
 /copy:images/atlas-definition.xml
 
@@ -27,6 +52,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:images/atlas.png
+
+#begin images/coin.png
+/copy:images/coin.png
+
+#begin images/coin.xml
+/copy:images/coin.xml
 
 #begin images/hero-animations.xml
 /copy:images/hero-animations.xml
@@ -81,4 +112,19 @@
 
 #begin images/skeletons.xml
 /copy:images/skeletons.xml
+
+#begin images/zombie1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/zombie1.png
+
+#begin images/zombies.xml
+/copy:images/zombies.xml
 
