@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/run_right</Texture>
+    <Regions>
+        <Region name="hero-right1" x="42" y="28" width="17" height="30" />
+        <Region name="hero-right2" x="136" y="27" width="19" height="31" />
+        <Region name="hero-right3" x="232" y="26" width="19" height="32" />
+        <Region name="hero-right4" x="327" y="27" width="19" height="30" />
+        <Region name="hero-right5" x="424" y="28" width="18" height="29" />
+        <Region name="hero-right6" x="523" y="27" width="15" height="30" />
+        <Region name="hero-right7" x="616" y="26" width="20" height="31" />
+        <Region name="hero-right8" x="711" y="27" width="20" height="31" />
+    </Regions>
+    <Animations>
+        <Animation name="hero-right" delay="100">
+            <Frame region="hero-right1" />
+            <Frame region="hero-right2" />
+            <Frame region="hero-right3" />
+            <Frame region="hero-right4" />
+            <Frame region="hero-right5" />
+            <Frame region="hero-right6" />
+            <Frame region="hero-right7" />
+            <Frame region="hero-right8" />
+        </Animation>
+        
+    </Animations>
+</TextureAtlas>

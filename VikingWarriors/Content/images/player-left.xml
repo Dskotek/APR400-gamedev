@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+    <Texture>images/run_left</Texture>
+    <Regions>
+        <Region name="hero-left1" x="37" y="28" width="17" height="30" />
+        <Region name="hero-left2" x="132" y="27" width="19" height="31" />
+        <Region name="hero-left3" x="229" y="26" width="19" height="32" />
+        <Region name="hero-left4" x="324" y="27" width="19" height="30" />
+        <Region name="hero-left5" x="420" y="28" width="17" height="29" />
+        <Region name="hero-left6" x="516" y="27" width="15" height="30" />
+        <Region name="hero-left7" x="612" y="26" width="20" height="31" />
+        <Region name="hero-left8" x="709" y="27" width="20" height="31" />
+    </Regions>
+    <Animations>
+        <Animation name="hero-left" delay="100">
+            <Frame region="hero-left1" />
+            <Frame region="hero-left2" />
+            <Frame region="hero-left3" />
+            <Frame region="hero-left4" />
+            <Frame region="hero-left5" />
+            <Frame region="hero-left6" />
+            <Frame region="hero-left7" />
+            <Frame region="hero-left8" />
+        </Animation>
+        
+    </Animations>
+</TextureAtlas>
