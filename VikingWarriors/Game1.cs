@@ -19,8 +19,7 @@ public class Game1 : Core
 
     private Animation _currentHeroAnimation;
 
-    // Defines the bat animated sprite.
-    private AnimatedSprite _bat;
+    private AnimatedSprite _coin;
 
     // Tracks the position of the slime.
     private Vector2 _heroPosition;
@@ -28,21 +27,29 @@ public class Game1 : Core
     // Speed multiplier when moving.
     private const float MOVEMENT_SPEED = 5.0f;
 
-    // Tracks the position of the bat.
-    private Vector2 _batPosition;
+    private Vector2 _coinPosition;
 
-    // Tracks the velocity of the bat.
-    private Vector2 _batVelocity;
+    private Vector2 _coinVelocity;
 
     private TileMap _tileMap;
 
     private Texture2D _tileset;
 
+    private Rectangle _roomBounds;
+
+    private SpriteFont _font;
+
+    private int _score;
+
+    private Vector2 _scoreTextPosition;
+
+    private Vector2 _scoreTextOrigin;
+
     private List<Rectangle> _tileRects = new();
 
     private List<Enemy> _enemies = new List<Enemy>();
 
-    public Game1() : base("Dungeon Slime", 1280, 768, false)
+    public Game1() : base("Viking Warriors", 1280, 768, false)
     {
         Core.ExitOnEscape = true;
     }
@@ -51,21 +58,26 @@ public class Game1 : Core
     {
         base.Initialize();
 
-        // Set the initial position of the bat to be 10px
-        // to the right of the slime.
-        _batPosition = new Vector2(_hero.Width + 10, 0);
-       // _skeletonPosition = new Vector2(_hero.Width + 200, 100);
+        _coinPosition = new Vector2(_hero.Width + 400, 400);
+        // _skeletonPosition = new Vector2(_hero.Width + 200, 100);
 
-        // Assign the initial random velocity to the bat.
-        AssignRandomBatVelocity();
+        AssignRandomCoinVelocity();
+
+        _scoreTextPosition = new Vector2(_roomBounds.Left, _tileMap.TileHeight * 0.5f);
+
+        float _scoreTextYOrigin = _font.MeasureString("Score").Y * 0.5f;
+        _scoreTextOrigin = new Vector2(0, _scoreTextYOrigin);
+        
     }
 
     protected override void LoadContent()
     {
         // Create the texture atlas from the XML configuration file.
         TextureAtlas atlas = TextureAtlas.FromFile(Content, "images/atlas-definition.xml");
-       // TextureAtlas skeletonAtlas = TextureAtlas.FromFile(Content, "images/skeletons.xml");
+        // TextureAtlas skeletonAtlas = TextureAtlas.FromFile(Content, "images/skeletons.xml");
         TextureAtlas heroAtlas = TextureAtlas.FromFile(Content, "images/hero-animations.xml");
+        
+        TextureAtlas coinAtlas = TextureAtlas.FromFile(Content, "images/coin.xml");
 
 
         // Create the slime animated sprite from the atlas.
@@ -78,9 +90,8 @@ public class Game1 : Core
         _hero = new AnimatedSprite(_heroDown); // Starta med nedåt
         _hero.Scale = new Vector2(4.0f, 4.0f);
 
-        // Create the bat animated sprite from the atlas.
-        _bat = atlas.CreateAnimatedSprite("bat-animation");
-        _bat.Scale = new Vector2(4.0f, 4.0f);
+        _coin = coinAtlas.CreateAnimatedSprite("coin-animation");
+        _coin.Scale = new Vector2(0.5f, 0.5f);
 
 
         
@@ -121,16 +132,26 @@ public class Game1 : Core
         };
         _tileMap = new TileMap(_tileset, 64, 64, mapData, _tileRects);
 
+        // Skapa spelplanens gränser baserat på tilemappen
+        // mapData.GetLength(1) ger bredden (antal kolumner)
+        // mapData.GetLength(0) ger höjden (antal rader)
+        _roomBounds = new Rectangle(
+            64,  // En tile in från vänster för väggarna
+            64, // En tile ner från toppen för väggarna
+            (mapData.GetLength(1) - 2) * 64,   // Bredd minus två tiles för väggarna
+            (mapData.GetLength(0) - 2) * 64  // Höjd minus två tiles för väggarna
+        );
+
+        _font = Content.Load<SpriteFont>("fonts/04B_30");
     }
 
     protected override void Update(GameTime gameTime)
     {
-        // Update the slime animated sprite.
+        // Update the hero animated sprite.
 
         bool isHeroMoving = false;
 
-        // Update the bat animated sprite.
-        _bat.Update(gameTime);
+        _coin.Update(gameTime);
 
         foreach (var enemy in _enemies)
         {
@@ -154,14 +175,6 @@ public class Game1 : Core
             _hero.CurrentFrame = 0;
         }
 
-        // Create a bounding rectangle for the screen.
-        Rectangle screenBounds = new Rectangle(
-            0,
-            0,
-            GraphicsDevice.PresentationParameters.BackBufferWidth,
-            GraphicsDevice.PresentationParameters.BackBufferHeight
-        );
-
         // Creating a bounding circle for the slime
         Circle heroBounds = new Circle(
             (int)(_heroPosition.X + (_hero.Width * 0.5f)),
@@ -171,125 +184,120 @@ public class Game1 : Core
 
         
 
-        // Use distance based checks to determine if the slime is within the
-        // bounds of the game screen, and if it is outside that screen edge,
-        // move it back inside.
-        if (heroBounds.Left < screenBounds.Left)
+        // Kontrollera att hjälten stannar inom spelplanens gränser
+        if (heroBounds.Left < _roomBounds.Left)
         {
-            _heroPosition.X = screenBounds.Left;
+            _heroPosition.X = _roomBounds.Left;
         }
-        else if (heroBounds.Right > screenBounds.Right)
+        else if (heroBounds.Right > _roomBounds.Right)
         {
-            _heroPosition.X = screenBounds.Right - _hero.Width;
+            _heroPosition.X = _roomBounds.Right - _hero.Width;
         }
 
-        if (heroBounds.Top < screenBounds.Top)
+        if (heroBounds.Top < _roomBounds.Top)
         {
-            _heroPosition.Y = screenBounds.Top;
+            _heroPosition.Y = _roomBounds.Top;
         }
-        else if (heroBounds.Bottom > screenBounds.Bottom)
+        else if (heroBounds.Bottom > _roomBounds.Bottom)
         {
-            _heroPosition.Y = screenBounds.Bottom - _hero.Height;
+            _heroPosition.Y = _roomBounds.Bottom - _hero.Height;
         }
 
 
-        Vector2 directionToHero = _heroPosition - _batPosition;
-        if (directionToHero != Vector2.Zero)
+        Vector2 directionToHeroCoin = _heroPosition - _coinPosition;
+        if (directionToHeroCoin != Vector2.Zero)
         {
-            directionToHero.Normalize();
-            _batVelocity = directionToHero * MOVEMENT_SPEED;
+            directionToHeroCoin.Normalize();
+            _coinVelocity = directionToHeroCoin * MOVEMENT_SPEED;
         }
 
         //TODO Ändra SLIME
-       /* Vector2 directionToSlimeSkeleton = _heroPosition - _skeletonPosition;
-        if (directionToSlimeSkeleton != Vector2.Zero)
-        {
-            directionToSlimeSkeleton.Normalize();
-            _skeletonPosition += directionToSlimeSkeleton * MOVEMENT_SPEED * 0.5f;
-        }
-        if (_heroPosition.X < _skeletonPosition.X)
-        {
-            _skeleton.Effects = SpriteEffects.FlipHorizontally;
-        }
-        else
-        {
-            _skeleton.Effects = SpriteEffects.None;
-        }*/
-        
-        
+        /* Vector2 directionToSlimeSkeleton = _heroPosition - _skeletonPosition;
+         if (directionToSlimeSkeleton != Vector2.Zero)
+         {
+             directionToSlimeSkeleton.Normalize();
+             _skeletonPosition += directionToSlimeSkeleton * MOVEMENT_SPEED * 0.5f;
+         }
+         if (_heroPosition.X < _skeletonPosition.X)
+         {
+             _skeleton.Effects = SpriteEffects.FlipHorizontally;
+         }
+         else
+         {
+             _skeleton.Effects = SpriteEffects.None;
+         }*/
 
-        // Calculate the new position of the bat based on the velocity.
-        Vector2 newBatPosition = _batPosition + _batVelocity;
 
-        // Create a bounding circle for the bat.
-        Circle batBounds = new Circle(
-            (int)(newBatPosition.X + (_bat.Width * 0.5f)),
-            (int)(newBatPosition.Y + (_bat.Height * 0.5f)),
-            (int)(_bat.Width * 0.5f)
+
+        Vector2 newCoinPosition = _coinPosition + _coinVelocity;
+
+        Circle coinBounds = new Circle(
+            (int)(newCoinPosition.X + (_coin.Width * 0.5f)),
+            (int)(newCoinPosition.Y + (_coin.Height * 0.5f)),
+            (int)(_coin.Width * 0.5f)
         );
 
         Vector2 normal = Vector2.Zero;
 
-        // Use distance based checks to determine if the bat is within the
-        // bounds of the game screen, and if it is outside that screen edge,
-        // reflect it about the screen edge normal.
-        if (batBounds.Left < screenBounds.Left)
+        if (coinBounds.Left < _roomBounds.Left)
         {
             normal.X = Vector2.UnitX.X;
-            newBatPosition.X = screenBounds.Left;
+            newCoinPosition.X = _roomBounds.Left;
         }
-        else if (batBounds.Right > screenBounds.Right)
+        else if (coinBounds.Right > _roomBounds.Right)
         {
             normal.X = -Vector2.UnitX.X;
-            newBatPosition.X = screenBounds.Right - _bat.Width;
+            newCoinPosition.X = _roomBounds.Right - _coin.Width;
         }
 
-        if (batBounds.Top < screenBounds.Top)
+        if (coinBounds.Top < _roomBounds.Top)
         {
             normal.Y = Vector2.UnitY.Y;
-            newBatPosition.Y = screenBounds.Top;
+            newCoinPosition.Y = _roomBounds.Top;
         }
-        else if (batBounds.Bottom > screenBounds.Bottom)
+        else if (coinBounds.Bottom > _roomBounds.Bottom)
         {
             normal.Y = -Vector2.UnitY.Y;
-            newBatPosition.Y = screenBounds.Bottom - _bat.Height;
+            newCoinPosition.Y = _roomBounds.Bottom - _coin.Height;
         }
 
-        // If the normal is anything but Vector2.Zero, this means the bat had
-        // moved outside the screen edge so we should reflect it about the
-        // normal.
-        if (normal != Vector2.Zero)
+
+
+
+          if (normal != Vector2.Zero)
         {
             normal.Normalize();
-            _batVelocity = Vector2.Reflect(_batVelocity, normal);
+            _coinVelocity = Vector2.Reflect(_coinVelocity, normal);
         }
 
-        _batPosition = newBatPosition;
+        _coinPosition = newCoinPosition;
 
-        if (heroBounds.Intersects(batBounds))
+        if (heroBounds.Intersects(coinBounds))
         {
+            // Öka poängen när hjälten kolliderar med myntet
+            _score += 100;
+
             // Divide the width  and height of the screen into equal columns and
-            // rows based on the width and height of the bat.
-            int totalColumns = GraphicsDevice.PresentationParameters.BackBufferWidth / (int)_bat.Width;
-            int totalRows = GraphicsDevice.PresentationParameters.BackBufferHeight / (int)_bat.Height;
+            // rows based on the width and height of the coin.
+            int totalColumns = GraphicsDevice.PresentationParameters.BackBufferWidth / (int)_coin.Width;
+            int totalRows = GraphicsDevice.PresentationParameters.BackBufferHeight / (int)_coin.Height;
 
             // Choose a random row and column based on the total number of each
             int column = Random.Shared.Next(0, totalColumns);
             int row = Random.Shared.Next(0, totalRows);
 
-            // Change the bat position by setting the x and y values equal to
+            // Change the coin position by setting the x and y values equal to
             // the column and row multiplied by the width and height.
-            _batPosition = new Vector2(column * _bat.Width, row * _bat.Height);
+            _coinPosition = new Vector2(column * _coin.Width, row * _coin.Height);
 
-            // Assign a new random velocity to the bat
-            AssignRandomBatVelocity();
+            // Assign a new random velocity to the coin
+            AssignRandomCoinVelocity();
         }
-
 
         base.Update(gameTime);
     }
 
-    private void AssignRandomBatVelocity()
+     private void AssignRandomCoinVelocity()
     {
         // Generate a random angle.
         float angle = (float)(Random.Shared.NextDouble() * Math.PI * 2);
@@ -300,7 +308,7 @@ public class Game1 : Core
         Vector2 direction = new Vector2(x, y);
 
         // Multiply the direction vector by the movement speed.
-        _batVelocity = direction * MOVEMENT_SPEED;
+        _coinVelocity = direction * MOVEMENT_SPEED;
     }
 
     private bool CheckKeyboardInput()
@@ -425,16 +433,29 @@ public class Game1 : Core
 
         _tileMap.Draw(SpriteBatch);
 
-        // Draw the slime sprite.
+        // Draw the hero sprite.
         _hero.Draw(SpriteBatch, _heroPosition);
 
-        // Draw the bat sprite.
-        _bat.Draw(SpriteBatch, _batPosition);
+        // Draw the coin sprite.
+        _coin.Draw(SpriteBatch, _coinPosition);
 
         foreach (var enemy in _enemies)
         {
             enemy.Draw(SpriteBatch);
         }
+
+        // Draw the score
+        SpriteBatch.DrawString(
+            _font,              // spriteFont
+            $"Score: {_score}", // text
+            _scoreTextPosition, // position
+            Color.White,        // color
+            0.0f,               // rotation
+            _scoreTextOrigin,   // origin
+            1.0f,               // scale
+            SpriteEffects.None, // effects
+            0.0f                // layerDepth
+        );
 
        // _skeleton.Draw(SpriteBatch, _skeletonPosition);
 
