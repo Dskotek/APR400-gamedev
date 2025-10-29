@@ -214,12 +214,6 @@ public class GameScene : Scene
             _hero.CurrentFrame = 0;
         }
 
-        // Creating a bounding circle for the slime
-        //Circle heroBounds = new Circle(
-        //  (int)(_heroPosition.X + (_hero.Width * 0.5f)),
-        //  (int)(_heroPosition.Y + (_hero.Height * 0.5f)),
-        //  (int)(_hero.Width * 0.5f)
-        // );
         Rectangle heroBounds = new Rectangle(
              (int)_heroPosition.X,
              (int)_heroPosition.Y,
@@ -248,40 +242,8 @@ public class GameScene : Scene
             _heroPosition.Y = _roomBounds.Bottom - _hero.Height;
         }
 
-
-        /*Vector2 directionToHeroCoin = _heroPosition - _coinPosition;
-        if (directionToHeroCoin != Vector2.Zero)
-        {
-            directionToHeroCoin.Normalize();
-            _coinVelocity = directionToHeroCoin * MOVEMENT_SPEED;
-        }*/
-
-        //TODO Ändra SLIME
-        /* Vector2 directionToSlimeSkeleton = _heroPosition - _skeletonPosition;
-         if (directionToSlimeSkeleton != Vector2.Zero)
-         {
-             directionToSlimeSkeleton.Normalize();
-             _skeletonPosition += directionToSlimeSkeleton * MOVEMENT_SPEED * 0.5f;
-         }
-         if (_heroPosition.X < _skeletonPosition.X)
-         {
-             _skeleton.Effects = SpriteEffects.FlipHorizontally;
-         }
-         else
-         {
-             _skeleton.Effects = SpriteEffects.None;
-         }*/
-
-
-
-
         Vector2 newCoinPosition = _coinPosition + _coinVelocity;
 
-        /*Circle coinBounds = new Circle(
-            (int)(newCoinPosition.X + (_coin.Width * 0.5f)),
-            (int)(newCoinPosition.Y + (_coin.Height * 0.5f)),
-            (int)(_coin.Width * 0.5f)
-        );*/
         Rectangle coinBounds = new Rectangle(
             (int)newCoinPosition.X,
             (int)newCoinPosition.Y,
