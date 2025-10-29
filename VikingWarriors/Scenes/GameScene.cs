@@ -184,7 +184,7 @@ public class GameScene : Scene
 
         _themeSong = Content.Load<Song>("audio/theme");
 
-        _font = Content.Load<SpriteFont>("fonts/04B_30");
+        _font = Content.Load<SpriteFont>("fonts/04B_31");
     }
 
     public override void Update(GameTime gameTime)
