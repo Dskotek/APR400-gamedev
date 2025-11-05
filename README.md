@@ -57,4 +57,5 @@ All resources are used under their respective free or CC0 licenses.
 If you wish to reuse any part of this project, please contact the project owner first.
 
 ✨ *Created with C#, MonoGame, and a touch of ninja spirit!*
-**This readme file was created with the help of generative AI.**
+
+##**This readme file was created with the help of generative AI.**
