@@ -58,4 +58,4 @@ If you wish to reuse any part of this project, please contact the project owner 
 
 ✨ *Created with C#, MonoGame, and a touch of ninja spirit!*
 
-## This readme file was created with the help of generative AI.
+### This readme file was created with assistance of a generative AI (ChatGPT).
