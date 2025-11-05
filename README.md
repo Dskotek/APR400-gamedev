@@ -50,7 +50,7 @@ This project uses free and openly licensed assets:
 - [Player character](https://xzany.itch.io/top-down-adventurer-character)
 - [Coin](https://opengameart.org/content/coin-animation)
 - [Tilesheet](https://kenney.nl/assets/rpg-base)
-- Audio assets from the **MonoGame 2D tutorial “Dungeon Slime”**.
+- [Audio assets](https://docs.monogame.net/articles/tutorials/building_2d_games/14_soundeffects_and_music/index.html) from the **MonoGame 2D tutorial “Dungeon Slime”**.
 - [Font (Knight Warrior)](https://www.fontspace.com/knight-warrior-font-f104596) — **Not for commercial use**.
 
 All resources are used under their respective free or CC0 licenses.  
