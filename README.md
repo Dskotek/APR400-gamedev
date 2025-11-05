@@ -24,7 +24,7 @@ The goal is to survive as long as possible and gather as many points as you can!
 1. Clone this repository:
    ```bash
    git clone https://github.com/<your-username>/APR400-gamedev.git
-   cd NinjaWarriors
+   cd APR400-gamedev
    ```
 
 2. Restore required tools:
@@ -38,20 +38,26 @@ The goal is to survive as long as possible and gather as many points as you can!
    dotnet tool restore
    ```
 
-3. Start the game by opening the project in your IDE (e.g., Visual Studio) and running the `GameScene` class.
-
----
-
-## 👥 Contributions
-This project was developed as part of a school assignment and is currently not open for external contributions.
+3. Start the game by opening the project in your IDE (e.g., Visual Studio Code) and running the `GameScene` class.
 
 ---
 
 ## 📄 License & Assets
 This project uses free and openly licensed assets:
 
-- Graphic assets from [Kenney.nl](https://kenney.nl/), [OpenGameArt](https://opengameart.org/), and [itch.io](https://itch.io/).  
+- Zombie (https://opengameart.org/content/zombie-rpg-sprites)
+  
+- Skeleton (https://opengameart.org/content/animated-skeleton)
+  
+- Player character (opengameart.org)
+  
+- Coin (https://opengameart.org/content/coin-animation)
+  
+- Tilesheet (https://kenney.nl/assets/rpg-base)
+  
 - Audio assets from the **MonoGame 2D tutorial “Dungeon Slime”**.
+  
+- Font from (https://www.fontspace.com/knight-warrior-font-f104596) **Not for commercial use**.
 
 All resources are used under their respective free or CC0 licenses.  
 If you wish to reuse any part of this project, please contact the project owner first.
@@ -59,4 +65,4 @@ If you wish to reuse any part of this project, please contact the project owner 
 ---
 
 ✨ *Created with C#, MonoGame, and a touch of ninja spirit!*
-This readme file was created with the help of generative AI.
+**This readme file was created with the help of generative AI.**
