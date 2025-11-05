@@ -81,9 +81,20 @@ public class Level
         );
     }
 
-    public void Draw(SpriteBatch spriteBatch)
+    public void DrawBackground(SpriteBatch spriteBatch, float playerBotY)
     {
-        _tileMap.Draw(spriteBatch);
+        _tileMap.DrawBase(spriteBatch);
+        _tileMap.DrawDecorationsBackground(spriteBatch, playerBotY);
+    }
+
+    public void DrawForeground(SpriteBatch spriteBatch, float playerBotY)
+    {
+        _tileMap.DrawDecorationsForeground(spriteBatch, playerBotY);
+    }
+
+    public void Draw(SpriteBatch spriteBatch, float playerBotY)
+    {
+        _tileMap.DrawBase(spriteBatch);
     }
 
     public int TileHeight => 64;

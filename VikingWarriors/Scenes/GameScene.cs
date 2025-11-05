@@ -169,7 +169,9 @@ public class GameScene : Scene
         // Begin the sprite batch to prepare for rendering.
         Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-        _level.Draw(Core.SpriteBatch);
+        float playerBotY = _player.Position.Y + _player.Bounds.Height;
+
+        _level.DrawBackground(Core.SpriteBatch, playerBotY);
 
         // Draw the player sprite
         _player.Draw(Core.SpriteBatch);
@@ -181,6 +183,9 @@ public class GameScene : Scene
         {
             enemy.Draw(Core.SpriteBatch);
         }
+
+        _level.DrawForeground(Core.SpriteBatch, playerBotY);
+        
 
         // Draw the score
         _score.Draw(Core.SpriteBatch);
