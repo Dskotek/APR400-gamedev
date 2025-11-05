@@ -102,7 +102,7 @@ public class GameScene : Scene
         _heroUp = heroUpAtlas.GetAnimation("hero-up");
         _heroRight = heroRightAtlas.GetAnimation("hero-right");
         _hero = new AnimatedSprite(_heroDown); // Starta med nedåt
-        _hero.Scale = new Vector2(2.5f, 2.5f);
+        _hero.Scale = new Vector2(2.0f, 2.0f);
 
         _coin = coinAtlas.CreateAnimatedSprite("coin-animation");
         _coin.Scale = new Vector2(0.5f, 0.5f);
@@ -436,7 +436,11 @@ public class GameScene : Scene
         // Begin the sprite batch to prepare for rendering.
         Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-        _tileMap.Draw(Core.SpriteBatch);
+        _tileMap.DrawBase(Core.SpriteBatch);
+
+        float playerBotY = _heroPosition.Y + _hero.Height;
+
+        _tileMap.DrawDecorationsBackground(Core.SpriteBatch, playerBotY);
 
         // Draw the hero sprite.
         _hero.Draw(Core.SpriteBatch, _heroPosition);
@@ -448,6 +452,7 @@ public class GameScene : Scene
         {
             enemy.Draw(Core.SpriteBatch);
         }
+        _tileMap.DrawDecorationsForeground(Core.SpriteBatch, playerBotY);
 
         // Draw the score
         Core.SpriteBatch.DrawString(

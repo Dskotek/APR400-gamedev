@@ -11,7 +11,7 @@ public class Skeleton : Enemy
     public Skeleton(AnimatedSprite sprite, Vector2 position, float speed)
         : base(sprite, position, speed)
     {
-        _sprite.Scale = new Vector2(3.0f, 3.0f);
+        _sprite.Scale = new Vector2(2.0f, 2.0f);
     }
     public override void Update(GameTime gameTime, Vector2 playerPosition, List<Enemy> otherEnemies = null)
     {

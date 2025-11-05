@@ -14,7 +14,7 @@ public class Zombie : Enemy
                 Animation zombieDown, Animation zombieRight, Animation zombieUp, Animation zombieLeft)
         : base(sprite, position, speed)
     {
-        _sprite.Scale = new Vector2(2.0f, 2.0f);
+        _sprite.Scale = new Vector2(1.5f, 1.5f);
         _zombieDown = zombieDown;
         _zombieRight = zombieRight;
         _zombieUp = zombieUp;
