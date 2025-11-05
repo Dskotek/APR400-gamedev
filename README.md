@@ -45,24 +45,16 @@ The goal is to survive as long as possible and gather as many points as you can!
 ## 📄 License & Assets
 This project uses free and openly licensed assets:
 
-- Zombie (https://opengameart.org/content/zombie-rpg-sprites)
-  
-- Skeleton (https://opengameart.org/content/animated-skeleton)
-  
-- Player character (opengameart.org)
-  
-- Coin (https://opengameart.org/content/coin-animation)
-  
-- Tilesheet (https://kenney.nl/assets/rpg-base)
-  
+- [Zombie](https://opengameart.org/content/zombie-rpg-sprites)
+- [Skeleton](https://opengameart.org/content/animated-skeleton)
+- [Player character](https://xzany.itch.io/top-down-adventurer-character)
+- [Coin](https://opengameart.org/content/coin-animation)
+- [Tilesheet](https://kenney.nl/assets/rpg-base)
 - Audio assets from the **MonoGame 2D tutorial “Dungeon Slime”**.
-  
-- Font from (https://www.fontspace.com/knight-warrior-font-f104596) **Not for commercial use**.
+- [Font (Knight Warrior)](https://www.fontspace.com/knight-warrior-font-f104596) — **Not for commercial use**.
 
 All resources are used under their respective free or CC0 licenses.  
 If you wish to reuse any part of this project, please contact the project owner first.
-
----
 
 ✨ *Created with C#, MonoGame, and a touch of ninja spirit!*
 **This readme file was created with the help of generative AI.**
