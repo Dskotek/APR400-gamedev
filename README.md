@@ -1,29 +1,62 @@
-Ninja Warriors
- Ett skolprojekt – ett 2D-spel byggt med MonoGame där du spelar som en ninja som samlar mynt
- och undviker fiender som zombies och skelett. Målet är att överleva så länge som möjligt och samla
- så många poäng du kan!
- Funktioner
- • Samla mynt för att öka din poäng.
- • Undvik fiender (zombies och skelett) för att inte förlora liv.
- • Enkel men rolig spelmekanik byggd i MonoGame.
- • Skapat som ett skolprojekt i C#.
- Tekniker som används
- Språk: C#
- Ramverk: MonoGame
- Installation & körning
- 1. Klona detta repository:
- git clone https://github.com/<ditt-användarnamn>/APR400-gamedev.git
- cd NinjaWarriors
-    Eller ladda ner zip från GitHub repot.
- 3. Återställ nödvändiga verktyg:
- dotnet tool restore
- Om du får felmeddelande om saknat manifest, kör följande:
- dotnet workload update
- dotnet tool restore
- 4. Starta spelet genom att öppna projektet i din IDE (t.ex. Visual Studio Code) och köra
- GameScene-klassen.
- Licens & Tillgångar
- Detta projekt använder gratis och fritt licensierade resurser:- Grafiska assets från Kenney.nl, OpenGameArt och itch.io.- Ljud från MonoGame 2D-tutorial 'Dungeon Slime'.
- Allt material används under respektive gratis- eller CC0-licenser.
- Om du planerar att återanvända koden, vänligen kontakta projektägaren först.
- Skapat med C#, MonoGame och mycket ninjakraft
+# 🥷 Ninja Warriors
+
+A school project – a 2D game built with the **MonoGame** framework where you play as a ninja collecting coins while avoiding enemies such as zombies and skeletons.  
+The goal is to survive as long as possible and gather as many points as you can!
+
+---
+
+## 🎮 Features
+- Collect coins to increase your score.
+- Avoid enemies (zombies and skeletons) to stay alive.
+- Simple yet fun gameplay built with MonoGame.
+- Created as a school project using C#.
+
+---
+
+## 🧰 Technologies Used
+- **Language:** C#  
+- **Framework:** [MonoGame](https://www.monogame.net/)
+
+---
+
+## ⚙️ Installation & Setup
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/<your-username>/APR400-gamedev.git
+   cd NinjaWarriors
+   ```
+
+2. Restore required tools:
+   ```bash
+   dotnet tool restore
+   ```
+
+   If you encounter a missing manifest error, run:
+   ```bash
+   dotnet workload update
+   dotnet tool restore
+   ```
+
+3. Start the game by opening the project in your IDE (e.g., Visual Studio) and running the `GameScene` class.
+
+---
+
+## 👥 Contributions
+This project was developed as part of a school assignment and is currently not open for external contributions.
+
+---
+
+## 📄 License & Assets
+This project uses free and openly licensed assets:
+
+- Graphic assets from [Kenney.nl](https://kenney.nl/), [OpenGameArt](https://opengameart.org/), and [itch.io](https://itch.io/).  
+- Audio assets from the **MonoGame 2D tutorial “Dungeon Slime”**.
+
+All resources are used under their respective free or CC0 licenses.  
+If you wish to reuse any part of this project, please contact the project owner first.
+
+---
+
+✨ *Created with C#, MonoGame, and a touch of ninja spirit!*
+This readme file was created with the help of generative AI.
