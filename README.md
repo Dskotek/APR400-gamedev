@@ -21,9 +21,8 @@ The goal is to survive as long as possible and gather as many points as you can!
 
 ## ⚙️ Installation & Setup
 
-1.```bash
-    Install MonoGame by completing the first two steps in [Getting Started](https://docs.monogame.net/articles/getting_started/index.html)
-    ```
+1. Install MonoGame by completing the first two steps in [Getting Started](https://docs.monogame.net/articles/getting_started/index.html)
+  
     
 2. Clone this repository
    ```bash
