@@ -21,13 +21,16 @@ The goal is to survive as long as possible and gather as many points as you can!
 
 ## ⚙️ Installation & Setup
 
-1. Clone this repository:
+1.```bash
+    Install [MonoGame](https://docs.monogame.net/articles/getting_started/index.html) by completing the first two steps in **Getting Started**
+    ```
+3. Clone this repository
    ```bash
    git clone https://github.com/<your-username>/APR400-gamedev.git
    cd APR400-gamedev
    ```
 
-2. Restore required tools:
+4. Restore required tools:
    ```bash
    dotnet tool restore
    ```
@@ -38,7 +41,7 @@ The goal is to survive as long as possible and gather as many points as you can!
    dotnet tool restore
    ```
 
-3. Start the game by opening the project in your IDE (e.g., Visual Studio Code) and running the `GameScene` class.
+5. Start the game by opening the project in your IDE (e.g., Visual Studio Code) and running the `GameScene` class.
 
 ---
 
