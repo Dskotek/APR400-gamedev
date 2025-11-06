@@ -35,7 +35,7 @@ The goal is to survive as long as possible and gather as many points as you can!
    dotnet tool restore
    ```
 
-If you encounter a missing manifest error, run:
+    If you encounter a missing manifest error, run:
    ```bash
    dotnet workload update
    dotnet tool restore
