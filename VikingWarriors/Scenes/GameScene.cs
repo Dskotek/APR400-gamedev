@@ -110,7 +110,7 @@ public class GameScene : Scene
         /*if (Core.Input.Keyboard.IsKeyDown(Keys.Z))
         {
             _enemies.Add(EnemyFactory.CreateRandomZombie(Content, new Vector2(300, 300)));
-        }  Stress testing  */
+        }  This block is used for stress testing, remove comments if you want to spawn zombies at your own  */
 
         // Check collision between player and coin
         if (_player.Bounds.Intersects(_coin.Bounds))
@@ -189,8 +189,6 @@ public class GameScene : Scene
 
         // Draw the score
         _score.Draw(Core.SpriteBatch);
-
-       // _skeleton.Draw(SpriteBatch, _skeletonPosition);
 
         // Always end the sprite batch when finished.
         Core.SpriteBatch.End();

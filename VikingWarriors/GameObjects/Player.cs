@@ -72,7 +72,6 @@ public class Player
         }
 
         Animation newAnimation = _sprite.Animation;
-        SpriteEffects newEffects = SpriteEffects.None;
 
         // Movement input
         if (Core.Input.Keyboard.IsKeyDown(Keys.W) || Core.Input.Keyboard.IsKeyDown(Keys.Up))
@@ -109,7 +108,6 @@ public class Player
         {
             _sprite.Animation = newAnimation;
         }
-        _sprite.Effects = newEffects;
 
         return moved;
     }
