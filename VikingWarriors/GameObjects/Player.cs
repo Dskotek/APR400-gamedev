@@ -34,9 +34,18 @@ public class Player
         _position = startPosition;
     }
 
-    public void Update(GameTime gameTime, Rectangle roomBounds)
+    public void Update(GameTime gameTime, Rectangle roomBounds, Level level)
     {
+        // Spara tidigare position
+        Vector2 previousPosition = _position;
+        
         bool isMoving = HandleInput(gameTime);
+
+        // Kolla kollision med staket/träd - om blockerad, återgå till förra positionen
+        if (level.IsBlocked(_position, _sprite.Width, _sprite.Height))
+        {
+            _position = previousPosition;
+        }
 
         if (isMoving)
         {

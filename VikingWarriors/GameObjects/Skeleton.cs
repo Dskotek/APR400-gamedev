@@ -13,9 +13,12 @@ public class Skeleton : Enemy
     {
         _sprite.Scale = new Vector2(2.0f, 2.0f);
     }
-    public override void Update(GameTime gameTime, Vector2 playerPosition, List<Enemy> otherEnemies = null)
+    public override void Update(GameTime gameTime, Vector2 playerPosition, Level level, List<Enemy> otherEnemies = null)
     {
-        base.Update(gameTime, playerPosition);
+        base.Update(gameTime, playerPosition, level, otherEnemies);
+
+        // Spara tidigare position
+        Vector2 previousPosition = _position;
 
         Vector2 separationForce = Vector2.Zero;
 
@@ -50,6 +53,12 @@ public class Skeleton : Enemy
             }
 
             _position += finalDirection * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            // Kolla kollision med staket/träd - om blockerad, återgå till förra positionen
+            if (level.IsBlocked(_position, _sprite.Width, _sprite.Height))
+            {
+                _position = previousPosition;
+            }
         }
 
         if (playerPosition.X < _position.X)

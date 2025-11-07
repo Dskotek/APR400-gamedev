@@ -14,6 +14,8 @@ public abstract class Enemy
 
 
     public Vector2 Position => _position;
+    public float Width => _sprite.Width;
+    public float Height => _sprite.Height;
 
     protected Enemy(AnimatedSprite sprite, Vector2 position, float speed)
     {
@@ -22,7 +24,7 @@ public abstract class Enemy
         _speed = speed;
     }
 
-    public virtual void Update(GameTime gameTime, Vector2 playerPosition, List<Enemy> otherEnemies = null)
+    public virtual void Update(GameTime gameTime, Vector2 playerPosition, Level level, List<Enemy> otherEnemies = null)
     {
         _sprite.Update(gameTime);
     }

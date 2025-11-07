@@ -8,12 +8,17 @@ namespace VikingWarriors.GameObjects;
 
 public class Level
 {
+
+
+
+    
+
+   
     private TileMap _tileMap;
     private Texture2D _tileset;
     private Rectangle _playableBounds;
 
     public Rectangle PlayableBounds => _playableBounds;
-
     public void LoadContent(ContentManager content)
     {
         List<Rectangle> tileRects = new List<Rectangle>
@@ -98,4 +103,42 @@ public class Level
     }
 
     public int TileHeight => 64;
+
+    // Returnera true om positionen är på en "blockerad" tile (endast träd)
+    // Kollar en enstaka punkt
+    private bool IsPointBlocked(float x, float y)
+    {
+        int tileX = (int)(x / 64);
+        int tileY = (int)(y / 64);
+        
+        int mapHeight = _tileMap.DecorationData.GetLength(0);
+        int mapWidth = _tileMap.DecorationData.GetLength(1);
+        
+        if (tileX < 0 || tileY < 0 || tileY >= mapHeight || tileX >= mapWidth)
+            return true;
+
+        int decoration = _tileMap.DecorationData[tileY, tileX];
+        return decoration == 13; // Endast träd, inte staket
+    }
+
+    // Kolla om någon del av spelaren/fienden är blockerad
+    // Vi kollar centrum och några punkter runt objektet
+    public bool IsBlocked(Vector2 position, float width = 32, float height = 32)
+    {
+        // Kolla centrum
+        if (IsPointBlocked(position.X + width / 2, position.Y + height / 2))
+            return true;
+        
+        // Kolla fyra hörn
+        if (IsPointBlocked(position.X, position.Y)) // Topp vänster
+            return true;
+        if (IsPointBlocked(position.X + width, position.Y)) // Topp höger
+            return true;
+        if (IsPointBlocked(position.X, position.Y + height)) // Botten vänster
+            return true;
+        if (IsPointBlocked(position.X + width, position.Y + height)) // Botten höger
+            return true;
+
+        return false;
+    }
 }
