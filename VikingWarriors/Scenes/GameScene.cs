@@ -95,8 +95,8 @@ public class GameScene : Scene
             Core.Audio.SoundEffectVolume -= 0.1f;
         }
 
-        // Update player
-        _player.Update(gameTime, _level.PlayableBounds);
+    // Update player
+    _player.Update(gameTime, _level.PlayableBounds, _level);
 
         // Update coin
         _coin.Update(gameTime, _level.PlayableBounds);
@@ -104,7 +104,7 @@ public class GameScene : Scene
         // Update enemies
         foreach (var enemy in _enemies)
         {
-            enemy.Update(gameTime, _player.Position, _enemies);
+            enemy.Update(gameTime, _player.Position, _level, _enemies);
         }
 
         /*if (Core.Input.Keyboard.IsKeyDown(Keys.Z))
