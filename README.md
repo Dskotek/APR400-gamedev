@@ -3,6 +3,11 @@
 A school project – a 2D game built with the **MonoGame** framework where you play as a ninja collecting coins while avoiding enemies such as zombies and skeletons.  
 The goal is to survive as long as possible and gather as many points as you can!
 
+###Note 
+Use **left-ctrl** to lower the volume and **left-alt** to raise the volume. Only works in the gamescene, not the menu.
+
+There is a lot of comments in the code from the initial tutorial from MonoGame, other comments are there for learning-purposes.
+
 ---
 
 ## 🎮 Features
